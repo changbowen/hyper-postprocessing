@@ -30,9 +30,10 @@ const burnInEffect = new GlslEffect('burn-in', {
 
 // ---------------------- RETRO EFFECT ----------------------
 // const jitter = 0.2;
-const retroEffect = new GlslEffect('retro', {
+const scale = 0.99;
+const retroEffect = new GlslEffect('retro_scaled', {
 		uniforms: new Map([
-			[ 'fontColor', new THREE.Uniform(new THREE.Vector3(2, 1.1, 0.72))], 
+			[ 'fontColor', new THREE.Uniform(new THREE.Vector3(1.5, 0.9, 0.6))], 
 			// [ 'backgroundColor', new THREE.Uniform(new THREE.Vector3(0.1, 0.0, 0.0))], 
 			[ 'chromaColor', new THREE.Uniform(0.5)], 
 			// [ 'staticNoise', new THREE.Uniform(0.2)], 
@@ -41,9 +42,10 @@ const retroEffect = new GlslEffect('retro', {
 			// [ 'horizontalSyncFrequency', new THREE.Uniform(0.30)], 
 			// [ 'jitter', new THREE.Uniform(new THREE.Vector2(0.007 * jitter, 0.002 * jitter))], 
 			[ 'glowingLine', new THREE.Uniform(0.4)], 
-			// [ 'flickering', new THREE.Uniform(0.2)], 
-			// [ 'ambientLight', new THREE.Uniform(0.05)], 
-			[ 'pixelHeight', new THREE.Uniform(9.042)], 
+			[ 'flickering', new THREE.Uniform(0.2)], 
+			// [ 'ambientLight', new THREE.Uniform(0.05)],
+			[ 'scanLineDensity', new THREE.Uniform(0.3)], 
+			[ 'scale', new THREE.Uniform(scale)], 
 			// [ 'pixelization', new THREE.Uniform(true)], 
 			// [ 'rbgSplit', new THREE.Uniform(0.2)], 
 		]),
@@ -92,7 +94,7 @@ function coordinateTransform(x, y) {
 
 // ---------------------- SCALE EFFECT ----------------------
 const scaleEffect = new GlslEffect('scale', {
-	defines: new Map([['scale', '0.99']])
+	defines: new Map([['scale', scale.toString()]])
 })
 
 
@@ -111,8 +113,8 @@ const sharpenEffect = new GlslEffect('sharpen', {
 
 
 // debugging
-// window.retroEffect = retroEffect;
-// window.sharpenEffect = sharpenEffect;
+window.retroEffect = retroEffect;
+window.sharpenEffect = sharpenEffect;
 
 
 return {
