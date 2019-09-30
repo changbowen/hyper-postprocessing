@@ -43,13 +43,13 @@ float getScanlineIntensity(vec2 coords) {
 	vec2 rasterizationCoords = fract(coords * resolution * scanLineDensity * scale);
 	val += smoothstep(0.0, 0.5, rasterizationCoords.y);
 	val -= smoothstep(0.5, 1.0, rasterizationCoords.y);
-	result *= mix(0.4, 1.0, val);
+	result *= mix(0.5, 1.0, val);
 
 	if (pixelization) {
 		val = 0.0;
 		val += smoothstep(0.0, 0.5, rasterizationCoords.x);
 		val -= smoothstep(0.5, 1.0, rasterizationCoords.x);
-		result *= mix(0.4, 1.0, val);
+		result *= mix(0.5, 1.0, val);
 	}
 
 	return result;

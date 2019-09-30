@@ -44,7 +44,7 @@ const retroEffect = new GlslEffect('retro_scaled', {
 			[ 'glowingLine', new THREE.Uniform(0.4)], 
 			[ 'flickering', new THREE.Uniform(0.2)], 
 			// [ 'ambientLight', new THREE.Uniform(0.05)],
-			[ 'scanLineDensity', new THREE.Uniform(0.3)], 
+			[ 'scanLineDensity', new THREE.Uniform(0.25)], 
 			[ 'scale', new THREE.Uniform(scale)], 
 			// [ 'pixelization', new THREE.Uniform(true)], 
 			// [ 'rbgSplit', new THREE.Uniform(0.2)], 
@@ -106,10 +106,10 @@ const sharpenEffect = new GlslEffect('sharpen', {
 });
 
 
-// // antialiasing disabled for clearer texts
-// const searchImage = new Image(); searchImage.src = POSTPROCESSING.SMAAEffect.searchImageDataURL;
-// const areaImage = new Image(); areaImage.src = POSTPROCESSING.SMAAEffect.areaImageDataURL;
-// const smaaEffect = new POSTPROCESSING.SMAAEffect(searchImage, areaImage, SMAAPreset = 3);
+// antialiasing disabled for clearer texts
+const searchImage = new Image(); searchImage.src = POSTPROCESSING.SMAAEffect.searchImageDataURL;
+const areaImage = new Image(); areaImage.src = POSTPROCESSING.SMAAEffect.areaImageDataURL;
+const smaaEffect = new POSTPROCESSING.SMAAEffect(searchImage, areaImage, SMAAPreset = 3);
 
 
 // debugging
@@ -123,8 +123,8 @@ return {
 		savePass,
 		new POSTPROCESSING.EffectPass(null, retroEffect, scaleEffect),
 		new POSTPROCESSING.EffectPass(null, sharpenEffect),
-		new POSTPROCESSING.EffectPass(null, bloomEffect),
-		new POSTPROCESSING.EffectPass(null, frameEffect),
+		// new POSTPROCESSING.EffectPass(null, bloomEffect),
+		// new POSTPROCESSING.EffectPass(null, frameEffect),
 		// new POSTPROCESSING.EffectPass(null, smaaEffect),
 	],
 	coordinateTransform: coordinateTransform,
