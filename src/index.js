@@ -22,8 +22,8 @@ import requirePeer from './require-peer';
 let THREE, PP;
 
 const CONFIG_DEFAULTS = {
-	entry: `${homedir()}/.hyper-postprocessing.js`
-
+	entry: `${homedir()}/.hyper-postprocessing.js`,
+	fps: 60,
 	// TODO: possible option to not render the selection and link layer?
 };
 
