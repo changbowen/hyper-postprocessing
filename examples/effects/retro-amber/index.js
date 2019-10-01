@@ -62,13 +62,13 @@ new THREE.TextureLoader().load(resolve(__dirname, '../../images/allNoise512.png'
 
 // ---------------------- BLOOM EFFECT ----------------------
 const bloomEffect = new POSTPROCESSING.BloomEffect({
-	kernelSize: 2,
-	// luminanceThreshold: 0,
-	// luminanceSmoothing: 0,
+	kernelSize: 3,
+	luminanceThreshold: 0,
+	luminanceSmoothing: 1,
 	// blendFunction: POSTPROCESSING.BlendFunction.ADD,	
 });
-bloomEffect.luminancePass.enabled = false;
-// bloomEffect.blendMode.opacity.value = 1;
+// bloomEffect.luminancePass.enabled = false;
+// bloomEffect.blendMode.opacity.value = 0.6;
 
 
 // ---------------------- FRAME EFFECT ----------------------
@@ -106,15 +106,16 @@ const sharpenEffect = new GlslEffect('sharpen', {
 });
 
 
-// antialiasing disabled for clearer texts
-const searchImage = new Image(); searchImage.src = POSTPROCESSING.SMAAEffect.searchImageDataURL;
-const areaImage = new Image(); areaImage.src = POSTPROCESSING.SMAAEffect.areaImageDataURL;
-const smaaEffect = new POSTPROCESSING.SMAAEffect(searchImage, areaImage, SMAAPreset = 3);
+// // antialiasing disabled for clearer texts
+// const searchImage = new Image(); searchImage.src = POSTPROCESSING.SMAAEffect.searchImageDataURL;
+// const areaImage = new Image(); areaImage.src = POSTPROCESSING.SMAAEffect.areaImageDataURL;
+// const smaaEffect = new POSTPROCESSING.SMAAEffect(searchImage, areaImage, SMAAPreset = 3);
 
 
 // debugging
-window.retroEffect = retroEffect;
-window.sharpenEffect = sharpenEffect;
+// window.retroEffect = retroEffect;
+// window.sharpenEffect = sharpenEffect;
+// window.bloomEffect = bloomEffect;
 
 
 return {
