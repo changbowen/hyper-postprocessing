@@ -23,11 +23,6 @@ let THREE, PP;
 
 const CONFIG_DEFAULTS = {
 	entry: `${homedir()}/.hyper-postprocessing.js`,
-<<<<<<< HEAD
-	fps: 60,
-	// TODO: possible option to not render the selection and link layer?
-=======
->>>>>>> eb42cc527a395db3dfb2c7fe0bb0ce1033fce189
 };
 
 exports.decorateTerm = (Term, { React }) => {
@@ -290,21 +285,11 @@ exports.decorateTerm = (Term, { React }) => {
 			const timeUniformsLength = timeUniforms.length;
 
 			const that = this;
-<<<<<<< HEAD
-			const fps = 1000 / this.config.fps;
-=======
 			const fps = 1000 / this.parsedEntry.fps;
 			let lastRenderTime = fps;
->>>>>>> eb42cc527a395db3dfb2c7fe0bb0ce1033fce189
 			(function render() {
-				setTimeout(() => {
-					that._animationId = window.requestAnimationFrame(render);
+				that._animationId = window.requestAnimationFrame(render);
 
-<<<<<<< HEAD
-					for (let i = 0; i < timeUniformsLength; i++) {
-						timeUniforms.value = that._clock.getElapsedTime();
-					}
-=======
 				const now = performance.now();
 				if (now - lastRenderTime < fps) {
 					return;
@@ -313,19 +298,13 @@ exports.decorateTerm = (Term, { React }) => {
 				for (let i = 0; i < timeUniformsLength; i++) {
 					timeUniforms.value = that._clock.getElapsedTime();
 				}
->>>>>>> eb42cc527a395db3dfb2c7fe0bb0ce1033fce189
 
-					for (let i = 0; i < xTermMaterialsLength; i++) {
-						xTermMaterials[i].map.needsUpdate = true;
-					}
+				for (let i = 0; i < xTermMaterialsLength; i++) {
+					xTermMaterials[i].map.needsUpdate = true;
+				}
 
-<<<<<<< HEAD
-					that._composer.render(that._clock.getDelta());
-				}, fps);
-=======
 				that._composer.render(that._clock.getDelta());
 				lastRenderTime = now;
->>>>>>> eb42cc527a395db3dfb2c7fe0bb0ce1033fce189
 			})();
 		}
 
