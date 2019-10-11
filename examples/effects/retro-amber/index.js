@@ -64,7 +64,7 @@ new THREE.TextureLoader().load(resolve(__dirname, '../../images/allNoise512.png'
 const bloomEffect = new POSTPROCESSING.BloomEffect({
 	kernelSize: 3,
 	luminanceThreshold: 0,
-	luminanceSmoothing: 1,
+	luminanceSmoothing: 0.5,
 	// blendFunction: POSTPROCESSING.BlendFunction.ADD,	
 });
 // bloomEffect.luminancePass.enabled = false;
