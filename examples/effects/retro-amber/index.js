@@ -44,8 +44,8 @@ const retroEffect = new GlslEffect('retro_scaled', {
 			[ 'glowingLine', new THREE.Uniform(0.4)], 
 			[ 'flickering', new THREE.Uniform(0.2)], 
 			// [ 'ambientLight', new THREE.Uniform(0.05)],
-			// [ 'scanLineDensity', new THREE.Uniform(0.5)], 
 			[ 'scale', new THREE.Uniform(scale)], 
+			// [ 'scanLineDensity', new THREE.Uniform(0.5)], 
 			// [ 'pixelization', new THREE.Uniform(true)], 
 			// [ 'rbgSplit', new THREE.Uniform(0.2)], 
 		]),
@@ -113,10 +113,12 @@ const sharpenEffect = new GlslEffect('sharpen', {
 
 
 // debugging
+// window.THREE = THREE;
+// window.POSTPROCESSING = POSTPROCESSING;
 // window.retroEffect = retroEffect;
 // window.sharpenEffect = sharpenEffect;
 // window.bloomEffect = bloomEffect;
-
+// window.scaleEffect = scaleEffect;
 
 return {
 	passes: [
