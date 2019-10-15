@@ -5,6 +5,10 @@ A [Hyper](https://github.com/zeit/hyper) plugin that makes it easy to attach fra
 Inspired by [cool-retro-term](https://github.com/Swordfish90/cool-retro-term).
 
 ## Examples
+| ![Cool Retro Term (Amber)][7] |
+|:---:|
+| Same as below but in amber with fewer distortion. [Example](examples/effects/retro-amber)
+
 | ![Cool Retro Term][1] |
 |:---:|
 | Some of the effects used in Cool Retro Term ported over by **norill**. [Example](examples/effects/retro)
@@ -35,6 +39,7 @@ Inspired by [cool-retro-term](https://github.com/Swordfish90/cool-retro-term).
 [4]: https://user-images.githubusercontent.com/11801881/40855043-2196500c-6588-11e8-8d00-79df78abeece.gif
 [5]: https://user-images.githubusercontent.com/11801881/40855047-23c12546-6588-11e8-92a4-13d475afc5cd.gif
 [6]: https://user-images.githubusercontent.com/11801881/46054056-5bd76580-c0fa-11e8-95c2-e8dc6a2040e5.gif
+[7]: https://user-images.githubusercontent.com/15975872/66824225-73d68d00-ef7a-11e9-9eb3-f7b4fb9bff0f.png
 
 ## How to setup
 In your `.hyper.js` config file, add `hyper-postprocessing` to the list of plugins. Then to specify options for this plugin, add a key `hyperPostprocessing` inside the `config` entry:
