@@ -29,7 +29,7 @@ const burnInEffect = new GlslEffect('burn-in', {
 );
 
 // ---------------------- RETRO EFFECT ----------------------
-const jitter = 0.1;
+const jitter = 0.2;
 const scale = 0.99;
 const retroEffect = new GlslEffect('retro_scaled', {
 		uniforms: new Map([
