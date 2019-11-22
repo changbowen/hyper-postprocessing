@@ -29,7 +29,7 @@ const burnInEffect = new GlslEffect('burn-in', {
 );
 
 // ---------------------- RETRO EFFECT ----------------------
-const jitter = 0.2;
+const jitter = 0.125;
 const scale = 0.99;
 const retroEffect = new GlslEffect('retro_scaled', {
 		uniforms: new Map([
@@ -45,7 +45,7 @@ const retroEffect = new GlslEffect('retro_scaled', {
 			[ 'flickering', new THREE.Uniform(0.2)], 
 			// [ 'ambientLight', new THREE.Uniform(0.05)],
 			[ 'scale', new THREE.Uniform(scale)], 
-			// [ 'scanLineDensity', new THREE.Uniform(0.5)], 
+			[ 'scanLineDensity', new THREE.Uniform(0.5)], 
 			// [ 'pixelization', new THREE.Uniform(true)], 
 			// [ 'rbgSplit', new THREE.Uniform(0.2)], 
 		]),
@@ -125,7 +125,8 @@ return {
 		new POSTPROCESSING.EffectPass(null, burnInEffect),
 		savePass,
 		new POSTPROCESSING.EffectPass(null, retroEffect, scaleEffect),
-		// new POSTPROCESSING.EffectPass(null, sharpenEffect),
+		// new POSTPROCESSING.EffectPass(null, retroEffect),
+		new POSTPROCESSING.EffectPass(null, sharpenEffect),
 		new POSTPROCESSING.EffectPass(null, bloomEffect),
 		new POSTPROCESSING.EffectPass(null, frameEffect),
 		// new POSTPROCESSING.EffectPass(null, smaaEffect),
